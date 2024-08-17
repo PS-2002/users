@@ -137,3 +137,5 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CSRF_TRUSTED_ORIGINS = ['https://*.users-production-514f.up.railway.app/','https://*.127.0.0.1']
