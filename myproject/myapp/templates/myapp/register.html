@@ -1,0 +1,57 @@
+
+<h1 class="text-2xl m-10">🧑 User Signup</h1>
+<div class="container py-5">
+    <form method="POST" class="bg-white shadow-md m-5 w-2/5 rounded px-8 pt-6 pb-8 mb-4">
+        {% csrf_token %}
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">User Type</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.user_type }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Email</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.email }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Username</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.username }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">First Name</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.first_name }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Last Name</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.last_name }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Address</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.address_line1 }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">City</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.city }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Pincode</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.pincode }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">State</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.state }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Password</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.password }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Confirm Password</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.password2 }}</div>
+        </div>
+        <div class="mb-2">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="">Profile Picture</label>
+            <div class="shadow text-gray-700 appearance-none border rounded py-2 px-3 mr-10">{{ user_form.profile_picture }}</div>
+        </div>
+        <button type="submit" class="text-white bg-green-500 px-5 py-2 my-5">Register</button>
+    </form>
+</div>
+<p class="px-10 py-10"><a class="text-indigo-700" href="{% url 'login' %}">Already a user? Login Instead</a></p>
