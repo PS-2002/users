@@ -31,7 +31,7 @@ def user_logout(request):
 
 def signup(request):
     if request.method == 'POST':
-        user_form = SignUpForm(request.POST, request.FILES)
+        user_form = SignUpForm(request.POST)
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
