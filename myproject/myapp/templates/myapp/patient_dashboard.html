@@ -5,10 +5,20 @@
     <li><h3>Email: {{ user.email }}</h3></li>
     <li><h3>Address: {{ user.address_line1 }}, {{ user.city }}, {{ user.state }}, {{ user.pincode }}</h3></li>
 </ul>
-<img src="{{ user.profile_picture.url }}" alt="Profile Photo">
+{% if user.profile_picture %}
+    <img src="{{ user.profile_picture.url }}" alt="Profile Photo">
+{% endif %}
 </br>
 {% if request.user.is_authenticated %}
+<h2>Choose category to view blogs created by doctors:</h2>
+<ul>
+    <li><a href="{% url 'patient_blog_list_by_category' category='mental_health' %}">Mental Health</a></li>
+    <li><a href="{% url 'patient_blog_list_by_category' category='heart_disease' %}">Heart Disease</a></li>
+    <li><a href="{% url 'patient_blog_list_by_category' category='covid19' %}">Covid19</a></li>
+    <li><a href="{% url 'patient_blog_list_by_category' category='immunization' %}">Immunization</a></li>
+</ul>
 <a class="py-8 px-2 text-gray-700 font-semibold" href="{% url 'logout' %}"><b>logout</b></a>
+
 {% else %}
 <a class="py-8 px-2 text-gray-700 font-semibold" href="{% url 'login' %}"><b>login</b></a>
 {% endif %}

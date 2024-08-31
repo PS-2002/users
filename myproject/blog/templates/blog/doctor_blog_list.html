@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Blog Posts</title>
+</head>
+<body>
+
+    <h1>Your Blog Posts</h1>
+    {% for post in posts %}
+    <div class="post">
+        <h2>{{ forloop.counter }}. {{ post.title }}</h2>
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 300px;">
+        {% endif %}
+        <p>{{ post.summary|truncatewords:15 }}...</p>
+        <p>Status: {{ post.is_draft|yesno:"Draft,Published" }}</p>
+    </div>
+    {% empty %}
+    <p>You have not uploaded any blog posts.</p>
+    {% endfor %}
+    {% if request.user.is_authenticated %}
+    <p class="px-10 py-10"><a class="text-indigo-700" href="{% url 'create_blog_post' %}">Create Another blog.</a></p>
+    <p class="px-10 py-10"><a class="text-indigo-700" href="{% url 'logout' %}">Logout</a></p>
+    {% endif %}
+</body>
+</html>
+
